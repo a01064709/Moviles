@@ -1,11 +1,17 @@
 package com.itesm.tarea1;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,8 +21,51 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void sePulsa (View view) {
+    public void sePulsaToast (View view) {
         Toast.makeText(this, "Pulsado", Toast.LENGTH_SHORT).show();
+    }
+
+    Context context;
+
+    public void sePulsaAlert (View view) {
+
+        context = getApplicationContext();
+        AlertDialog.Builder DialogConf = new AlertDialog.Builder(this);
+
+        DialogConf.setTitle("Confirmation Dialog");
+        DialogConf.setMessage("This is the Text of the Dialog");
+        DialogConf.setIcon(R.mipmap.ic_launcher);
+
+        final EditText TextInput = new EditText(context);
+        TextInput.setTextColor(Color.BLUE);
+        DialogConf.setView(TextInput);
+
+        DialogConf.setPositiveButton("Yes",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(context, "You answer yes", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        DialogConf.setNegativeButton("No",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(context, "You answer NO", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        DialogConf.setNeutralButton("Close",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(context, "You closed the dialog", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+        AlertDialog MyDialog = DialogConf.create();
+        MyDialog.show();
     }
 
     public void lanzarMensaje(View view) {
