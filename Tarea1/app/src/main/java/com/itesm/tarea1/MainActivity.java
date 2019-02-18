@@ -1,9 +1,13 @@
 package com.itesm.tarea1;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.app.NotificationBuilderWithBuilderAccessor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -66,6 +70,24 @@ public class MainActivity extends AppCompatActivity {
 
         AlertDialog MyDialog = DialogConf.create();
         MyDialog.show();
+
+        //Bar Notification
+
+        int NOTIF_ID = 1234;
+
+        Notification.Builder NotiBuilder = new Notification.Builder(this);
+        NotiBuilder.setSmallIcon(R.mipmap.ic_launcher);
+        NotiBuilder.setContentTitle("Important Notification");
+        NotiBuilder.setContentText("This is the detail of the notification");
+
+        Intent notificationIntent = new Intent(context, MainActivity.class);
+        notificationIntent.putExtra("myData", "This string comes from the previous activiry");
+        PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
+
+        NotiBuilder.setContentIntent(contentIntent);
+
+        NotificationManager MyNotification = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        MyNotification.notify(NOTIF_ID, NotiBuilder.build());
     }
 
     public void lanzarMensaje(View view) {
