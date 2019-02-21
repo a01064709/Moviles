@@ -10,15 +10,41 @@
     <Button
         android:id="@+id/button"
         android:layout_width="301dp"
-        android:layout_height="wrap_content"
+        android:layout_height="46dp"
         android:layout_marginTop="24dp"
         android:onClick="lanzarMensaje"
-        android:text="Button"
+        android:text="ir a act 2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.356" />
+        app:layout_constraintVertical_bias="0.127" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="301dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="24dp"
+        android:onClick="sePulsaToast"
+        android:text="toast"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.423" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="301dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="24dp"
+        android:onClick="sePulsaAlert"
+        android:text="notificacion"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintVertical_bias="0.72" />
 
     <EditText
         android:id="@+id/editText"
