@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Vibrator;
 import android.support.v4.app.NotificationBuilderWithBuilderAccessor;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -146,6 +147,12 @@ public class MainActivity extends AppCompatActivity implements GestureDetector.O
         i.putExtra("mensaje",msj);
 
         startActivity(i);
+    }
+
+    Vibrator vibrator=(Vibrator) getSystemService(VIBRATOR_SERVICE);
+
+    public void vibrar(View view) {
+        vibrator.vibrate(6000);
     }
 
     private static final int SWIPE_THRESHOLD = 100;
